@@ -4,7 +4,21 @@
 
 > Knife proposes · the player explores · Digitakt edits
 
-This is a public engineering showcase, not the complete firmware source and not a consumer product release.
+This is a public engineering showcase for a private working firmware project. It is not a consumer product release.
+
+## What it does in practice
+
+MIX LAB is a useful concrete example. A player can start with a **KICK**, browse a rhythmic family and one of its parts/candidates, then hold **SEND**. The selected candidate and its effective destination are captured as one transaction; only a verified result can add that candidate to the local `CURRENT MIX` and bind the role to its track.
+
+```text
+KICK  → family → part / candidate → HOLD SEND → verified result → remembered track
+SNARE → browse the same role vocabulary      → HOLD SEND → next available target, when one exists
+HAT   → continue building the local mix
+```
+
+In BUILD, relationship logic marks families that are relevant to the mix already committed locally. In FREE, the same underlying role corpus remains available without that advisory emphasis. Neither mode silently owns the musical decision.
+
+Later, returning to KICK uses its remembered binding unless the player explicitly rebinds or unbinds it. A newly verified KICK choice replaces that role's local mix member; the committed SNARE and HAT entries remain separate. The external sequencer remains responsible for its own timing, editing, and device reality.
 
 ## What it explores
 
@@ -13,17 +27,15 @@ This is a public engineering showcase, not the complete firmware source and not 
 - Digitakt II integration approached as a verified state transition—not a fire-and-forget transmission.
 - Musical exploration where candidates remain visible and choice remains explicit.
 
-The working system has evolved through source work, host tests, and selected hardware experiments. The evidence labels below are deliberate: **HARDWARE-PROVEN** is not implied by a build, a source reading, or a fixture.
-
 ## Hardware and interaction
 
 The firmware is built around a Teensy 4.1, two rotary encoders, direct choice buttons, a dedicated SEND control, and a small SH1106 OLED. DIN MIDI and USB MIDI sit at the transport edge; musical and UI state stay local to the device.
 
+The constrained interface is intentional: physical controls expose a small, readable musical surface instead of reproducing a workstation UI. The display reports state; it does not own it.
+
 ![Early enclosure CAD concept](assets/enclosure-cad-concept.png)
 
-*Early enclosure CAD concept, not a photograph of finished hardware and not a product render.*
-
-The constrained interface is intentional: physical controls expose a small, readable musical surface instead of reproducing a workstation UI. The display reports state; it does not own it.
+*Early enclosure CAD concept supporting the physical-prototyping story; it is not a photograph of finished hardware or a product render.*
 
 ## Interaction philosophy
 
@@ -34,7 +46,7 @@ The project separates temporary exploration from deliberate commitment:
 - routing state is not claimed device history;
 - technical safety can veto an unsafe operation, but musical suitability should annotate rather than silently override the user.
 
-This matters when an embedded controller is both a performance surface and a stateful companion to another instrument.
+In practice, this exposes musical choices, reduces routing and bookkeeping friction, and lets a player revisit one element of a mix without silently composing or rewriting the others. It matters when an embedded controller is both a performance surface and a stateful companion to another instrument.
 
 ## Digitakt II: verified transaction thinking
 
@@ -72,7 +84,7 @@ MIX LAB keeps three kinds of state separate:
 browse candidate  ≠  committed CURRENT MIX  ≠  future routing target
 ```
 
-Its experimental corpus contains role/family/part candidates. BUILD and FREE browse the same role corpus: BUILD marks relationship-relevant families from current context, while FREE removes that advisory bias. Neither mode should conceal technically valid musical options merely because a heuristic dislikes them.
+Its experimental corpus contains role/family/part candidates. **FREE** makes the selected role's full corpus available for unrestricted exploration. **BUILD** reads that same space and marks relationship-relevant families from the current local context. The relationship logic helps explain or highlight a choice; it does not silently filter the space or own the player's musical decision.
 
 The experiment is deliberately honest about its limits: the candidate research is not a finished ontology, and some musical distinctions still need audition and device-level validation.
 
@@ -98,6 +110,8 @@ This project has been a practical exercise in making small hardware interfaces t
 - Hardware evidence can overturn a plausible source-level story. That is a feature of the process, not an inconvenience to hide.
 
 ## Evidence and current status
+
+The working system has evolved through source work, host tests, and selected hardware experiments. These labels are deliberate: **HARDWARE-PROVEN** is not implied by a build, a source reading, or a fixture.
 
 | Evidence label | Meaning in this showcase |
 | --- | --- |
