@@ -1,0 +1,11 @@
+# Public showcase only: do not add private firmware or captures.
+*.ino
+*.syx
+*.hex
+*.bin
+*.elf
+*.map
+*.log
+captures/
+firmware/
+research/

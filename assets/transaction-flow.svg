@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Verified transaction flow</title>
+  <desc id="desc">A visible candidate becomes an immutable snapshot, is submitted through a writer to hardware, then fresh readback and verification decide whether to commit or preserve prior local state.</desc>
+  <style>text{font-family:Arial,sans-serif;fill:#edf3f7}.box{fill:#18222e;stroke:#6fb7d6;stroke-width:2}.ok{fill:#1e453b;stroke:#79d4a1;stroke-width:2}.hold{fill:#442b33;stroke:#e69aab;stroke-width:2}.line{stroke:#8bd3e6;stroke-width:3;fill:none}.small{font-size:16px;fill:#c4d0d9}.label{font-size:20px;font-weight:700}.title{font-size:29px;font-weight:700}</style>
+  <rect width="1200" height="360" fill="#0d1219" rx="18"/>
+  <text x="52" y="58" class="title">Verified transaction flow — UI truth waits for device evidence</text>
+  <rect class="box" x="45" y="135" width="145" height="90" rx="11"/><text class="label" x="69" y="171">Visible</text><text class="label" x="58" y="197">candidate</text>
+  <rect class="box" x="270" y="135" width="165" height="90" rx="11"/><text class="label" x="294" y="171">Immutable</text><text class="label" x="299" y="197">snapshot</text>
+  <rect class="box" x="515" y="135" width="135" height="90" rx="11"/><text class="label" x="548" y="171">Writer</text><text class="small" x="541" y="198">pending</text>
+  <rect class="box" x="730" y="135" width="135" height="90" rx="11"/><text class="label" x="760" y="171">Device</text><text class="small" x="755" y="198">result</text>
+  <rect class="box" x="945" y="135" width="180" height="90" rx="11"/><text class="label" x="973" y="171">Fresh readback</text><text class="small" x="990" y="198">verify meaning</text>
+  <path class="line" d="M190 180H270M435 180H515M650 180H730M865 180H945"/><path fill="#8bd3e6" d="M261 174l12 6-12 6zm245 0l12 6-12 6zm206 0l12 6-12 6zm224 0l12 6-12 6"/>
+  <path class="line" d="M1035 225V270H815"/><path class="line" d="M1035 225V270H385"/>
+  <rect class="ok" x="670" y="270" width="170" height="60" rx="10"/><text class="label" x="710" y="307">Commit state</text>
+  <rect class="hold" x="240" y="270" width="230" height="60" rx="10"/><text class="label" x="275" y="307">Preserve prior state</text>
+  <text class="small" x="932" y="319">verified or no-change</text>
+</svg>

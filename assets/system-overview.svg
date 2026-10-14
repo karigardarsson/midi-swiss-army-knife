@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">MIDI Swiss Army Knife system overview</title>
+  <desc id="desc">Controls and display feed local runtime state, musical candidates and a transaction boundary before a Digitakt II readback verification loop returns committed state.</desc>
+  <style>text{font-family:Arial,sans-serif;fill:#e8edf3}.box{fill:#18222e;stroke:#6fb7d6;stroke-width:2}.accent{fill:#203b46;stroke:#8bd3e6;stroke-width:2}.line{stroke:#8bd3e6;stroke-width:3;fill:none}.small{font-size:17px;fill:#b9c7d3}.label{font-size:23px;font-weight:700}.title{font-size:30px;font-weight:700}</style>
+  <rect width="1200" height="420" fill="#0d1219" rx="18"/>
+  <text x="60" y="62" class="title">MIDI Swiss Army Knife — high-level system boundary</text>
+  <rect class="box" x="58" y="140" width="180" height="112" rx="12"/><text class="label" x="83" y="183">Controls + OLED</text><text class="small" x="82" y="214">physical input</text><text class="small" x="82" y="237">bounded display</text>
+  <rect class="accent" x="328" y="122" width="210" height="148" rx="12"/><text class="label" x="365" y="168">Runtime state</text><text class="small" x="361" y="199">browse / routing /</text><text class="small" x="361" y="222">pending / committed</text>
+  <rect class="box" x="628" y="140" width="190" height="112" rx="12"/><text class="label" x="653" y="183">Musical layer</text><text class="small" x="654" y="214">candidate choices</text><text class="small" x="654" y="237">role-aware tools</text>
+  <rect class="accent" x="908" y="122" width="230" height="148" rx="12"/><text class="label" x="933" y="168">Transaction edge</text><text class="small" x="934" y="199">read → bounded write</text><text class="small" x="934" y="222">→ readback → verify</text>
+  <path class="line" d="M238 196H328M538 196H628M818 196H908"/><path fill="#8bd3e6" d="M319 190l12 6-12 6zm291 0l12 6-12 6zm290 0l12 6-12 6"/>
+  <path class="line" d="M1022 270V340H432V270"/><path fill="#8bd3e6" d="M426 280l6-12 6 12z"/><text class="small" x="628" y="374">verified device result may update local committed state</text>
+</svg>
